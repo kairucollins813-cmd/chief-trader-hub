@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE CHIEF TRADER | Prop Firms, Brokers & Risk Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #08080a;
+      --bg-card: #121216;
+      --bg-card-hover: #18181e;
+      --gold: #d4af37;
+      --gold-light: #f3d268;
+      --gold-dim: rgba(212, 175, 55, 0.14);
+      --text-main: #f5f5f7;
+      --text-muted: #a1a1aa;
+      --border: rgba(212, 175, 55, 0.22);
+      --success: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 4rem;
+      background-image: radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 55%);
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(180deg, rgba(20, 20, 26, 0.95), rgba(10, 10, 13, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.15rem 1.15rem 1.75rem;
+      text-align: center;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .banner-slot {
+      width: 100%;
+      aspect-ratio: 3 / 1;
+      min-height: 115px;
+      max-height: 220px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #0b0b0e;
+      overflow: hidden;
+    }
+
+    .banner-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .avatar-slot img,
+    .proof-img-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-slot {
+      position: relative;
+      z-index: 2;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: #14141a;
+      margin: -1.65rem auto 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--gold);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75);
+      overflow: hidden;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+    }
+
+    .brand-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--gold-light);
+    }
+
+    .motto {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .bio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      color: var(--gold-light);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .code-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      background: #0d0d10;
+      border: 1px solid var(--gold);
+      padding: 0.65rem 1rem;
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+
+    .code-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .code-value {
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #09090b;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    /* Navigation Tabs */
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.75rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    /* Cards & Grids */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-size: 1.08rem;
+      color: var(--gold-light);
+    }
+
+    .status-pill {
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .filter-pill.active {
+      background: var(--gold);
+      color: #09090b;
+      border-color: var(--gold);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 620px) {
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.9rem;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: var(--gold-dim);
+      color: var(--gold-light);
+      white-space: nowrap;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Payout Proof Section */
+    .proof-section {
+      margin-top: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+
+    .proof-img-slot {
+      height: 110px;
+      border-radius: 12px;
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      background: rgba(212, 175, 55, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      overflow: hidden;
+    }
+
+    /* Calculators */
+    .calc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 560px) {
+      .form-grid.two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #0b0b0e;
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .result-highlight {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+
+    /* Footer */
+    .footer-card {
+      margin-top: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--gold);
+      color: #09090b;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: transform 0.25s ease;
+      z-index: 999;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HERO / BRAND HEADER -->
+    <header class="hero">
+      <div class="banner-slot">
+        <img src="assets/banner.jpg" alt="The Chief Trader — Veni Vidi Vici Banner">
+      </div>
+
+      <!-- TODO: Replace with brother's profile photo when ready: <img src="assets/avatar.jpg" alt="The Chief Trader"> -->
+      <div class="avatar-slot">CHIEF</div>
+
+      <h1 class="brand-title">THE CHIEF TRADER</h1>
+      <p class="motto">The Godfather • Billion$Trader • SC. Dickens</p>
+
+      <div class="bio-tags">
+        <span class="tag">The Simba Mindset</span>
+        <span class="tag">$NQ &amp; $SP</span>
+        <span class="tag">Prop Firms &amp; Brokers</span>
+      </div>
+
+      <div class="code-box">
+        <div>
+          <div class="code-label">Primary Code</div>
+          <div class="code-value" id="masterCode">SCHIEF</div>
+        </div>
+        <button class="btn btn-gold" onclick="copyCode('SCHIEF')">Copy SCHIEF</button>
+      </div>
+    </header>
+
+    <!-- MAIN NAVIGATION TABS -->
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab-btn active" data-tab="partners" onclick="switchTab('partners')">Firms &amp; Brokers</button>
+      <button class="tab-btn" data-tab="savings" onclick="switchTab('savings')">Discount Calc</button>
+      <button class="tab-btn" data-tab="risk" onclick="switchTab('risk')">$NQ/$SP Risk</button>
+    </nav>
+
+    <!-- TAB 1: PROP FIRMS & BROKERS -->
+    <section id="panel-partners" class="panel active">
+      <div class="section-header">
+        <h2 class="section-title">Verified Partners</h2>
+        <span class="status-pill">3 Prop Firms • 2 Brokers</span>
+      </div>
+
+      <div class="filter-row">
+        <button class="filter-pill active" onclick="filterPartners('all', this)">All (5)</button>
+        <button class="filter-pill" onclick="filterPartners('prop', this)">Prop Firms (3)</button>
+        <button class="filter-pill" onclick="filterPartners('broker', this)">Brokers (2)</button>
+      </div>
+
+      <div class="cards-grid" id="partnersGrid"></div>
+
+      <!-- PAYOUT & MILESTONE PROOF SECTION -->
+      <div class="proof-section">
+        <div class="section-header" style="margin-bottom: 0.35rem;">
+          <h3 class="section-title">Verified Payout Proof</h3>
+          <span class="badge">FundedNext</span>
+        </div>
+        <p class="card-desc">Real payout certificates &amp; execution milestones — consistency, hard work, and discipline.</p>
+        <div class="proof-grid">
+          <!-- TODO: Replace with FundedNext payout screenshot 1: <img src="assets/payout-1.jpg" alt="FundedNext Payout Certificate"> -->
+          <div class="proof-img-slot">Payout Proof #1<br>(FundedNext Certificate Slot)</div>
+          <!-- TODO: Replace with FundedNext payout screenshot 2: <img src="assets/payout-2.jpg" alt="Payout Confirmation"> -->
+          <div class="proof-img-slot">Payout Proof #2<br>(3-Min Payout Proof Slot)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: CHALLENGE DISCOUNT CALCULATOR -->
+    <section id="panel-savings" class="panel">
+      <div class="calc-card">
+        <h2 class="section-title">Challenge Discount Estimator</h2>
+        <p class="card-desc">See estimated savings when applying code <strong>SCHIEF</strong> on a prop firm evaluation.</p>
+
+        <div class="form-grid two-col">
+          <div>
+            <label for="challengePrice">Standard Challenge Fee ($ USD)</label>
+            <input type="number" id="challengePrice" value="530" min="10" oninput="calcSavings()" />
+          </div>
+          <div>
+            <label for="discountPct">Discount Rate (%)</label>
+            <select id="discountPct" onchange="calcSavings()">
+              <option value="10">10% Off</option>
+              <option value="15">15% Off</option>
+              <option value="20" selected>20% Off</option>
+              <option value="50">50% Off (Moneta First Purchase)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="result-box" id="savingsResult"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: $NQ & $SP POSITION SIZE CALCULATOR -->
+    <section id="panel-risk" class="panel">
+      <div class="calc-card">
+        <h2 class="section-title">$NQ &amp; $SP Contract Risk Calculator</h2>
+        <p class="card-desc">Quick contract sizing for futures traders before entering a setup.</p>
+
+        <div class="form-grid two-col">
+          <div>
+            <label for="contractType">Index Contract</label>
+            <select id="contractType" onchange="calcRisk()">
+              <option value="20">NQ — E-mini Nasdaq ($20 / pt)</option>
+              <option value="2" selected>MNQ — Micro Nasdaq ($2 / pt)</option>
+              <option value="50">ES — E-mini S&amp;P ($50 / pt)</option>
+              <option value="5">MES — Micro S&amp;P ($5 / pt)</option>
+            </select>
+          </div>
+          <div>
+            <label for="accountSize">Account Size ($ USD)</label>
+            <input type="number" id="accountSize" value="50000" min="100" step="100" oninput="calcRisk()" />
+          </div>
+          <div>
+            <label for="riskPct">Risk Per Trade (%)</label>
+            <input type="number" id="riskPct" value="1" min="0.1" max="10" step="0.1" oninput="calcRisk()" />
+          </div>
+          <div>
+            <label for="stopPoints">Stop Loss (Points)</label>
+            <input type="number" id="stopPoints" value="25" min="1" step="0.5" oninput="calcRisk()" />
+          </div>
+        </div>
+
+        <div class="result-box" id="riskResult"></div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY & BUSINESS WHATSAPP FOOTER -->
+    <footer class="footer-card">
+      <h3 class="section-title">THE CHIEF TRADING COMMUNITY™</h3>
+      <p class="card-desc">Part of Big Billionaires LLC • Connect directly for community access &amp; inquiries.</p>
+      <div class="footer-links">
+        <a class="btn btn-gold" href="https://wa.me/254717117014?text=Hello%20The%20Chief%20Trader%2C%20I%20came%20from%20your%20hub." target="_blank" rel="noopener">
+          WhatsApp Business
+        </a>
+        <a class="btn btn-outline" href="https://x.com/THECHIEFKE" target="_blank" rel="noopener">
+          X (@THECHIEFKE)
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <script>
+    const partners = [
+      {
+        name: "FundedNext",
+        type: "prop",
+        badge: "Code: SCHIEF",
+        code: "SCHIEF",
+        desc: "Fast payouts & flexible accounts. Use code SCHIEF for 7% off CFDs (+100% refundable fee) or 10% off Futures.",
+        url: "https://fundednext.com/?fpr=SCHIEF"
+      },
+      {
+        name: "Moneta Funded",
+        type: "prop",
+        badge: "50% OFF • SCHIEF",
+        code: "SCHIEF",
+        desc: "50% OFF first purchase with code SCHIEF. Two-Step challenges from $17 & Instant Funding from $20.",
+        url: "https://www.monetafunded.com/?coupon=SCHIEF"
+      },
+      {
+        name: "Alpha Capital",
+        type: "prop",
+        badge: "Code: SCHIEF50",
+        code: "SCHIEF50",
+        desc: "Trusted prop firm partner. Sign up through The Chief Trader's link or apply code SCHIEF50 at checkout.",
+        url: "https://app.alphacapitalgroup.uk/signup/SCHIEF50"
+      },
+      {
+        name: "Pepperstone",
+        type: "broker",
+        badge: "Forex & CFD Broker",
+        code: "",
+        desc: "Rated #1 CFD trading broker with fast execution, tight spreads, and institutional-grade liquidity.",
+        // IMPORTANT: Paste his exact full Pepperstone partner URL from WhatsApp here
+        url: "https://trk.pepperstonepartners.com"
+      },
+      {
+        name: "FN Markets",
+        type: "broker",
+        badge: "Code: schief",
+        code: "schief",
+        desc: "Trade 84+ instruments with fast execution, tight spreads, and 120+ funding options via referral code schief.",
+        url: "https://app.fnmarkets.com/auth?page=registration&referral_code=schief"
+      }
+    ];
+
+    function renderPartners(filter = "all") {
+      const grid = document.getElementById("partnersGrid");
+      const filtered = filter === "all" ? partners : partners.filter(p => p.type === filter);
+
+      grid.innerHTML = filtered.map(item => `
+        <article class="card">
+          <div>
+            <div class="card-top">
+              <h3>${item.name}</h3>
+              <span class="badge">${item.badge}</span>
+            </div>
+            <p class="card-desc" style="margin-top: 0.5rem;">${item.desc}</p>
+          </div>
+          <div class="card-actions">
+            ${item.code ? `<button class="btn btn-outline" onclick="copyCode('${item.code}')">Copy ${item.code}</button>` : ""}
+            <a class="btn btn-gold" href="${item.url}" target="_blank" rel="noopener">Open Link</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function filterPartners(type, btnEl) {
+      document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+      btnEl.classList.add("active");
+      renderPartners(type);
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll(".tab-btn").forEach(b => {
+        b.classList.toggle("active", b.dataset.tab === tabName);
+      });
+      document.querySelectorAll(".panel").forEach(panel => {
+        panel.classList.toggle("active", panel.id === `panel-${tabName}`);
+      });
+    }
+
+    function copyCode(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+      showToast(`Copied "${text}"!`);
+    }
+
+    function fallbackCopy(text) {
+      const temp = document.createElement("textarea");
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function calcSavings() {
+      const price = parseFloat(document.getElementById("challengePrice").value) || 0;
+      const pct = parseFloat(document.getElementById("discountPct").value) || 0;
+      const saved = (price * pct) / 100;
+      const finalPrice = Math.max(0, price - saved);
+
+      document.getElementById("savingsResult").innerHTML = `
+        <div class="card-desc">Estimated Savings with <strong>SCHIEF</strong></div>
+        <div class="result-highlight">$${saved.toFixed(2)} Saved</div>
+        <div class="card-desc" style="margin-top: 0.25rem;">Final Checkout Price: <strong>$${finalPrice.toFixed(2)}</strong></div>
+      `;
+    }
+
+    function calcRisk() {
+      const pointValue = parseFloat(document.getElementById("contractType").value) || 2;
+      const balance = parseFloat(document.getElementById("accountSize").value) || 0;
+      const riskPercent = parseFloat(document.getElementById("riskPct").value) || 0;
+      const stopPts = parseFloat(document.getElementById("stopPoints").value) || 1;
+
+      const maxRiskDollars = (balance * riskPercent) / 100;
+      const riskPerContract = stopPts * pointValue;
+      const rawContracts = riskPerContract > 0 ? maxRiskDollars / riskPerContract : 0;
+      const recommendedContracts = Math.floor(rawContracts);
+
+      document.getElementById("riskResult").innerHTML = `
+        <div class="card-desc">Max Dollar Risk: <strong>$${maxRiskDollars.toFixed(2)}</strong> • Risk / 1 Contract: <strong>$${riskPerContract.toFixed(2)}</strong></div>
+        <div class="result-highlight" style="margin-top: 0.35rem;">
+          ${recommendedContracts} ${recommendedContracts === 1 ? "Contract" : "Contracts"} <span style="font-size:0.85rem;font-weight:500;">(exact: ${rawContracts.toFixed(2)})</span>
+        </div>
+      `;
+    }
+
+    // Initialize UI
+    renderPartners();
+    calcSavings();
+    calcRisk();
+  </script>
+</body>
+</html>
