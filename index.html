@@ -72,22 +72,30 @@
       display: block;
     }
 
-    .avatar-slot img,
+    .avatar-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+    }
+
     .proof-img-slot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .avatar-slot {
       position: relative;
       z-index: 2;
-      width: 78px;
-      height: 78px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
-      border: 2px solid var(--gold);
+      border: 2.5px solid var(--gold);
       background: #14141a;
-      margin: -1.65rem auto 0.7rem;
+      margin: -2.1rem auto 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,7 +103,7 @@
       font-weight: 700;
       font-size: 0.95rem;
       color: var(--gold);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85);
       overflow: hidden;
     }
 
@@ -463,8 +471,9 @@
         <img src="IMG-20261122-WA0025.jpg" alt="The Chief Trader — Veni Vidi Vici Banner">
       </div>
 
-      <!-- TODO: Replace with brother's profile photo when ready: <img src="avatar.jpg" alt="The Chief Trader"> -->
-      <div class="avatar-slot">CHIEF</div>
+      <div class="avatar-slot">
+        <img src="Screenshot_20261123_144734_Instagram.jpg" alt="The Chief Trader Portrait">
+      </div>
 
       <h1 class="brand-title">THE CHIEF TRADER</h1>
       <p class="motto">The Godfather • Billion$Trader • SC. Dickens</p>
@@ -631,7 +640,6 @@
         badge: "Forex & CFD Broker",
         code: "",
         desc: "Rated #1 CFD trading broker with fast execution, tight spreads, and institutional-grade liquidity.",
-        // Paste his exact full Pepperstone partner URL from WhatsApp here if different
         url: "https://trk.pepperstonepartners.com"
       },
       {
